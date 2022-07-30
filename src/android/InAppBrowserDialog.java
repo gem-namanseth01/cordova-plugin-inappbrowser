@@ -21,7 +21,6 @@ package org.apache.cordova.inappbrowser;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +33,6 @@ import android.content.DialogInterface;
 public class InAppBrowserDialog extends Dialog {
     Context context;
     InAppBrowser inAppBrowser = null;
-    private WebView webView;
 
     public InAppBrowserDialog(Context context, int theme) {
         super(context, theme);
@@ -46,15 +44,22 @@ public class InAppBrowserDialog extends Dialog {
     }
 
     // public void onBackPressed () {
-        
+    //     if (this.inAppBrowser == null) {
+    //         this.dismiss();
+    //     } else {
+    //         // better to go through the in inAppBrowser
+    //         // because it does a clean up
+    //         if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
+    //             this.inAppBrowser.goBack();
+    //         }  else {
+    //             this.inAppBrowser.closeDialog();
+    //         }
+    //     }
     // }
 
-    
-    String url = webView.getUrl();
+
     public void onBackPressed() {
-        
-        if (url.equals("https://sdrestdemo.iorta.in/#/home")) {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
         .setTitle("Exit")
         .setMessage("You are about to exit, are you sure?")
         .setPositiveButton("Exit", new DialogInterface.OnClickListener(){
@@ -80,19 +85,5 @@ public class InAppBrowserDialog extends Dialog {
         });
         alertDialogBuilder.create();
         alertDialogBuilder.show();
-    } else {
-        if (this.inAppBrowser == null) {
-            this.dismiss();
-        } else {
-            // better to go through the in inAppBrowser
-            // because it does a clean up
-            if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
-                this.inAppBrowser.goBack();
-            }  else {
-                this.inAppBrowser.closeDialog();
-            }
-        }
     }
-    }
-        
 }
