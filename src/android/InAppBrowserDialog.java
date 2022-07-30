@@ -43,13 +43,14 @@ public class InAppBrowserDialog extends Dialog {
         this.inAppBrowser = browser;
     }
 
-    public void onBackPressed () {
+    // public void onBackPressed () {
         
-    }
+    // }
 
-    String url = webView.getUrl();
+    
     
     public void onBackPressed() {
+        String url = webView.getUrl();
         if (url.equals("https://ionicframework.com/")) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
         .setTitle("Exit")
