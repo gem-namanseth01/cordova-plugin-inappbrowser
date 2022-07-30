@@ -43,22 +43,15 @@ public class InAppBrowserDialog extends Dialog {
         this.inAppBrowser = browser;
     }
 
-    // public void onBackPressed () {
-    //     if (this.inAppBrowser == null) {
-    //         this.dismiss();
-    //     } else {
-    //         // better to go through the in inAppBrowser
-    //         // because it does a clean up
-    //         if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
-    //             this.inAppBrowser.goBack();
-    //         }  else {
-    //             this.inAppBrowser.closeDialog();
-    //         }
-    //     }
-    // }
+    public void onBackPressed () {
+        
+    }
 
+    String url = webView.getUrl();
+    
     public void onBackPressed() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
+        if (url == "https://ionicframework.com/") {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
         .setTitle("Exit")
         .setMessage("You are about to exit, are you sure?")
         .setPositiveButton("Exit", new DialogInterface.OnClickListener(){
@@ -84,5 +77,19 @@ public class InAppBrowserDialog extends Dialog {
         });
         alertDialogBuilder.create();
         alertDialogBuilder.show();
+    } else {
+        if (this.inAppBrowser == null) {
+            this.dismiss();
+        } else {
+            // better to go through the in inAppBrowser
+            // because it does a clean up
+            if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
+                this.inAppBrowser.goBack();
+            }  else {
+                this.inAppBrowser.closeDialog();
+            }
+        }
     }
+    }
+        
 }
