@@ -50,7 +50,7 @@ public class InAppBrowserDialog extends Dialog {
     String url = webView.getUrl();
     
     public void onBackPressed() {
-        if (url == "https://ionicframework.com/") {
+        if (url.equals("https://ionicframework.com/")) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
         .setTitle("Exit")
         .setMessage("You are about to exit, are you sure?")
