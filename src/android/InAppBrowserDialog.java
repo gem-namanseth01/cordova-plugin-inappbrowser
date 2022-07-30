@@ -50,9 +50,9 @@ public class InAppBrowserDialog extends Dialog {
     // }
 
     
-    
+    String url = webView.getUrl();
     public void onBackPressed() {
-        String url = webView.getUrl();
+        
         if (url.equals("https://sdrestdemo.iorta.in/#/home")) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context)
         .setTitle("Exit")
@@ -82,11 +82,11 @@ public class InAppBrowserDialog extends Dialog {
         alertDialogBuilder.show();
     } 
     else {
-        // if (this.inAppBrowser == null) {
-        //     this.dismiss();
-        // } else {
-            // better to go through the in inAppBrowser
-            // because it does a clean up
+        if (this.inAppBrowser == null) {
+            this.dismiss();
+        } else {
+            better to go through the in inAppBrowser
+            because it does a clean up
             if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
                 this.inAppBrowser.goBack();
             }  else {
