@@ -95,5 +95,6 @@ public class InAppBrowserDialog extends Dialog {
         // }
     }
     }
+    }
         
 }
