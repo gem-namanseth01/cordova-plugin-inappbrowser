@@ -80,20 +80,18 @@ public class InAppBrowserDialog extends Dialog {
         });
         alertDialogBuilder.create();
         alertDialogBuilder.show();
-    } 
-    else {
+    } else {
         if (this.inAppBrowser == null) {
             this.dismiss();
         } else {
-            better to go through the in inAppBrowser
-            because it does a clean up
+            // better to go through the in inAppBrowser
+            // because it does a clean up
             if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
                 this.inAppBrowser.goBack();
             }  else {
                 this.inAppBrowser.closeDialog();
             }
-        // }
-    }
+        }
     }
     }
         
