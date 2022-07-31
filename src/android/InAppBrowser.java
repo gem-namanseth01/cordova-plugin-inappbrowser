@@ -1073,8 +1073,8 @@ public class InAppBrowser extends CordovaPlugin {
                 // lp.height = WindowManager.LayoutParams.MATCH_PARENT;
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                int displayWidth = displayMetrics.widthPixels;
-                int displayHeight = displayMetrics.heightPixels - 200;
+                int displayWidth = displayMetrics.widthPixels - 150;
+                int displayHeight = displayMetrics.heightPixels - 250;
                 lp.height = displayHeight;
 
                 if (dialog != null) {
